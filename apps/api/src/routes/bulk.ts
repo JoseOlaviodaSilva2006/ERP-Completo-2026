@@ -97,7 +97,7 @@ router.post('/import/:entity', upload.single('file'), async (req: AuthenticatedR
     let currentBatch = db.batch();
     let operationCount = 0;
 
-    for (const record of records) {
+    for (const record of records as any[]) {
       // Remove ID do CSV se houver, para o Firestore gerar um novo automaticamente.
       delete record.id;
 

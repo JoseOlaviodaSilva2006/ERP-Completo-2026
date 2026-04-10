@@ -92,7 +92,7 @@ router.get('/', async (req: AuthenticatedRequest, res: Response) => {
 
     const variationsByProduct: Record<string, any[]> = {};
     variationsSnapshot.forEach(doc => {
-      const v = { id: doc.id, ...doc.data() };
+      const v: any = { id: doc.id, ...doc.data() };
       try {
         const cost = decrypt(v.costEncrypted, v.iv, v.authTag);
         v.cost = parseFloat(cost);
