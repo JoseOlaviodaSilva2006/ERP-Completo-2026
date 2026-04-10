@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: erp-api
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 4000
+      - key: JWT_SECRET
+        value: "seu_segredo_jwt_super_seguro_aqui_123456"
+      - key: GOOGLE_APPLICATION_CREDENTIALS_JSON
+        value: "cole_aqui_o_json_do_firebase"
